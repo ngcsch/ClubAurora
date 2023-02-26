@@ -1,15 +1,18 @@
 public class ClubAurora {
     public String clubID;
-    public String clubAddress;
-    private int totalMembers;
-    public int foundedOn;
+    private String memberFirstName;
+    private String memberLastName;
+    private String memberAddress;
+    private String joiningDate;
     private String memberType;
-    private double subscriptionFee;
+    //private double subscriptionFee;
 
-    public ClubAurora(String id, String address, int totalmembers, String membership) {
+    public ClubAurora(String id, String firstName, String lastName, String address, String joined, String membership) {
         this.clubID = id;
-        this.clubAddress = address;
-        this.totalMembers = totalmembers;
+        this.memberFirstName = firstName;
+        this.memberLastName = lastName;
+        this.memberAddress = address;
+        this.joiningDate = joined;
         this.memberType = membership;
     }
 
@@ -17,15 +20,23 @@ public class ClubAurora {
         return clubID;
     }
 
-    public String getClubAddress() {
-        return clubAddress;
+    public String getFirstName() {
+        return memberFirstName;
     }
 
-    public int getTotalMembers() {
-        return totalMembers;
+    public String getLastName() {
+        return memberLastName;
     }
 
-    public String getMemberType() {
+    public String getAddress() {
+        return memberAddress;
+    }
+
+    public String getJoiningDate() {
+        return joiningDate;
+    }
+
+    public String getMembership() {
         return memberType;
     }
 
@@ -50,8 +61,5 @@ public class ClubAurora {
 
     private double calculateFee(int base, float multiplier, float discount) {
         return (base * multiplier) - ((base/2) * discount);
-    }
-
-
-    
+    }    
 }
