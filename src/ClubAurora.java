@@ -5,7 +5,6 @@ public class ClubAurora {
     private String memberAddress;
     private String joiningDate;
     private String memberType;
-    //private double subscriptionFee;
 
     public ClubAurora(String id, String firstName, String lastName, String address, String joined, String membership) {
         this.clubID = id;
@@ -40,26 +39,7 @@ public class ClubAurora {
         return memberType;
     }
 
-    public double getSubscriptionFee(String membership) {
-        double fees = 0;
-        switch(membership){
-            case "Monthly":
-            fees = calculateFee(1000, 0.8f, 0.2f);
-            break;
-            case "Half yearly":
-            fees = calculateFee(1500, 0.6f, 0.3f);
-            break;
-            case "Yearly":
-            fees = calculateFee(1800, 0.45f, 0.4f);
-            break;
-            case "Lifetime":
-            fees = calculateFee(3000, 0.35f, 0.45f);
-            break;
-        }
-        return Math.round(fees);
+    public double getSubscriptionFee() {
+        return SubscriptionFeeCalculator.calculateSubscriptionFee(memberType);
     }
-
-    private double calculateFee(int base, float multiplier, float discount) {
-        return (base * multiplier) - ((base/2) * discount);
-    }    
 }
